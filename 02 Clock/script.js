@@ -12,6 +12,12 @@ function setDate() {
    function degrees (time) {
     return ((time / 60) * 360) + 90;
    };
+
+   function tick() {
+    const audio = document.querySelector('.tick');
+    audio.currentTime = 0;
+    audio.play();
+   }
   
    const secondsDegrees = degrees(seconds);
    const minutesDegrees = degrees(minutes);
@@ -22,7 +28,7 @@ function setDate() {
    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 
    [secondHand, minuteHand, hourHand].forEach(el => el.style.transition = (seconds === 0) ? 'none' : null );
-
+   tick();
    console.log(now);
 }
 
