@@ -18,17 +18,14 @@ function setDate() {
     audio.currentTime = 0;
     audio.play();
    }
-  
-   const secondsDegrees = degrees(seconds);
-   const minutesDegrees = degrees(minutes);
-   const hoursDegrees = 0.5 * (hours * 60 + minutes) + 90;
 
-   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-   minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
-   hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+   secondHand.style.transform = `rotate(${degrees(seconds)}deg)`;
+   minuteHand.style.transform = `rotate(${degrees(minutes)}deg)`;
+   hourHand.style.transform = `rotate(${0.5 * (hours * 60 + minutes) + 90}deg)`;
 
    [secondHand, minuteHand, hourHand].forEach(el => el.style.transition = (seconds === 0) ? 'none' : null );
    tick();
+   
    console.log(now);
 }
 
