@@ -171,3 +171,60 @@ const sortedAsLived = inventors.sort(function (a, b) {
 });
 console.log("5. Sort the inventors by years lived ");
 console.table(sortedAsLived);
+
+const otherPeople = [
+  { name: "Wes", year: 1988 },
+  { name: "Kait", year: 1986 },
+  { name: "Irv", year: 1970 },
+  { name: "Lux", year: 2015 },
+];
+console.table(otherPeople);
+
+const comments = [
+  { text: "Love this!", id: 523423 },
+  { text: "Super good", id: 823423 },
+  { text: "You are the best", id: 2039842 },
+  { text: "Ramen is my fav food ever", id: 123523 },
+  { text: "Nice Nice Nice!", id: 542328 },
+];
+console.table(comments);
+
+// Some and Every Checks
+
+// Array.prototype.some() // is at least one person 19 or older?
+
+const currentYear = new Date().getFullYear();
+const isAdult = otherPeople.some((person) => currentYear - person.year >= 19);
+console.log("is at least one person 19 or older?" + " Answer is: " + isAdult);
+
+// Array.prototype.every() // is everyone 19 or older?
+
+const allAdults = otherPeople.every(
+  (person) => currentYear - person.year >= 19
+);
+console.log("is everyone 19 or older?" + " Answer is: " + allAdults);
+// Array.prototype.find()
+// Find is like filter, but instead returns just the one you are looking for
+// find the comment with the ID of 823423
+const thatComment = comments.find((comment) => comment.id === 823423);
+console.log(
+  "find the comment with the ID of 823423" +
+    " Answer is: " +
+    thatComment.text +
+    " " +
+    thatComment.id
+);
+
+// Array.prototype.findIndex()
+// Find the comment with this ID
+const thatCommentID = comments.findIndex((comment) => comment.id === 823423);
+console.log(
+  "find the comment index with the ID of 823423" +
+    " Answer is: " +
+    thatCommentID
+);
+console.log("then delete that comment");
+// delete the comment with the ID of 823423
+comments.splice(thatCommentID, 1);
+
+console.table(comments);
