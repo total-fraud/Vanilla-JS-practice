@@ -37,7 +37,7 @@ function checkComplete(element) {
 
     element.addEventListener("change", () => {
         if (element.checked) {
-            element.parentElement.style.backgroundColor = "rgba(88, 235, 52, 0.3)";
+            element.parentElement.style.backgroundColor = "rgba(170, 75, 107, 0.3)";
             element.nextSibling.style.textDecoration = "line-through";
         } else {
             element.parentElement.style.backgroundColor = "transparent";
